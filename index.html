@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Murat Altun | AI Expert & Educator</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: rgba(30, 41, 59, 0.7);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-purple: #818cf8;
+            --gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--surface-color);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+
+        .greeting {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .typewriter {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            height: 30px;
+            margin-bottom: 2rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-btn:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            color: var(--accent-purple);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Skills/Tags */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--accent-blue);
+            color: var(--bg-color);
+        }
+
+        /* Lists */
+        .content-list {
+            list-style: none;
+        }
+
+        .content-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-purple);
+            transition: all 0.3s ease;
+        }
+
+        .content-list li:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateX(5px);
+        }
+
+        .content-list span {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content-list a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .content-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Area */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-btn.phone {
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .contact-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        .contact-btn.phone:hover {
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .glass-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="greeting">Hi there 👋 I am</span>
+            <h1>Dr. Murat Altun</h1>
+            <div class="typewriter" id="typewriter"></div>
+            
+            <div class="social-links">
+                <a href="https://yapayzekaokulum.com/" target="_blank" class="social-btn" title="Yapay Zeka Okulum"><i class="fas fa-globe"></i></a>
+                <a href="https://github.com/DrMuratAltun" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/drmurataltun/" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@yapayzekaokulum" target="_blank" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.kaggle.com/drmurataltun" target="_blank" class="social-btn" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                <a href="https://huggingface.co/drmurataltun" target="_blank" class="social-btn" title="HuggingFace"><i class="fas fa-robot"></i></a>
+                <a href="https://www.instagram.com/drmurataltun/" target="_blank" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="glass-card">
+            <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+            <p>Dr. Murat Altun is an expert in artificial intelligence (AI) based in Turkey. He works as a professional trainer and consultant, specializing in data analysis, data mining, machine learning, deep learning (DL), large language models (LLMs), AI, and Python.</p>
+            <p>He contributed to the "Opportunities Increasing Artificial Intelligence in Education (FEYZA) Project", initiated by the Turkish Ministry of National Education, aimed at leveraging AI technologies for educational transformation.</p>
+            <p>In addition to his writing and consulting work, Dr. Altun conducts professional training programs on AI-related topics. His 16-hour "Block-Based AI Training" course is now in its 8th iteration, featuring updated content. His research profile on ResearchGate further highlights his contributions to AI, seeking to emulate human intelligence through artificial systems.</p>
+        </section>
+
+        <!-- Work Areas / Tech Stack -->
+        <section class="glass-card">
+            <h2><i class="fas fa-code"></i> Work Areas & Technologies</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Python 🐍</span>
+                <span class="tech-tag">Large Language Models (LLMs)</span>
+                <span class="tech-tag">Machine Learning (ML)</span>
+                <span class="tech-tag">Deep Learning (DL)</span>
+                <span class="tech-tag">Data Science & Mining</span>
+                <span class="tech-tag">MLOps</span>
+                <span class="tech-tag">Educational AI</span>
+            </div>
+        </section>
+
+        <!-- Books / Publications -->
+        <section class="glass-card">
+            <h2><i class="fas fa-book"></i> Publications & Books</h2>
+            <ul class="content-list">
+                <li><span>Yapay Zekâ Öğretmen El Kitabı (2023) <i class="fas fa-check-circle"></i></span></li>
+                <li><span>Yapay Zekâ ve Makine Öğrenmesi (Mesleki Eğitim Ders Kitabı) (2022) <i class="fas fa-check-circle"></i></span></li>
+                <li><span>Arduino ile Robotik Kodlama (2021) <i class="fas fa-check-circle"></i></span></li>
+                <li><span>Kilim Kodluyorum (2021) <i class="fas fa-check-circle"></i></span></li>
+                <li><span>Kodlama Eğitimi Temel Düzey (2020) <i class="fas fa-check-circle"></i></span></li>
+                <li><span>Herkes İçin Python Programlama Dili (2019) <i class="fas fa-check-circle"></i></span></li>
+            </ul>
+        </section>
+
+        <!-- YouTube Videos Section -->
+        <section class="glass-card">
+            <h2><i class="fab fa-youtube"></i> Latest Playlists</h2>
+            <ul class="content-list">
+                <li>
+                    <span>
+                        Using Generative AI Tools (Turkish)
+                        <a href="https://www.youtube.com/playlist?list=PLBVaoRYzRl2yAHwmn0rGW8UX4OYp7kcgl" target="_blank"><i class="fas fa-external-link-alt"></i> Watch</a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        Applied Machine Learning Bootcamp with Python
+                        <a href="https://www.youtube.com/playlist?list=PLBVaoRYzRl2wobQuT4Ni4u_Lpwek0XraT" target="_blank"><i class="fas fa-external-link-alt"></i> Watch</a>
+                    </span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="glass-card" style="text-align: center;">
+            <h2><i class="fas fa-paper-plane"></i> Let's Connect!</h2>
+            <p>Interested in collaborating on real-world AI projects, LLM applications, or corporate training?</p>
+            
+            <div class="contact-info">
+                <a href="mailto:emurataltun@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> emurataltun@gmail.com</a>
+                <a href="tel:+905392578206" class="contact-btn phone"><i class="fas fa-phone"></i> +90 539 257 82 06</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Typing Effect Script -->
+    <script>
+        const texts = [
+            "AI Expert & Consultant 🤖", 
+            "Python, ML, DL & LLMs 🐍", 
+            "Author & Educator 📚", 
+            "Data Scientist 📊"
+        ];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+        let isDeleting = false;
+
+        function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+
+            if (isDeleting) {
+                letter = currentText.slice(0, --index);
+            } else {
+                letter = currentText.slice(0, ++index);
+            }
+
+            document.getElementById('typewriter').textContent = letter + "|";
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && letter.length === currentText.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && letter.length === 0) {
+                isDeleting = false;
+                count++;
+                typeSpeed = 500; // Pause before new word
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(type, 1000);
+        });
+    </script>
+</body>
+</html>
